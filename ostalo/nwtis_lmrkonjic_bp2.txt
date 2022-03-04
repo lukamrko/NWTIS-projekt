@@ -1,0 +1,113 @@
+CREATE TABLE `airports` (
+  `ident` varchar(10) NOT NULL,
+  `type` varchar(30) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `elevation_ft` varchar(10) NULL,
+  `continent` varchar(30) NULL,  
+  `iso_country` varchar(30) NULL,  
+  `iso_region` varchar(10) NULL,  
+  `municipality` varchar(30) NULL,  
+  `gps_code` varchar(10) NOT NULL,  
+  `iata_code` varchar(10) NOT NULL,  
+  `local_code` varchar(10) NOT NULL,  
+  `coordinates` varchar(30) NOT NULL,  
+  PRIMARY KEY (`ident`)
+)
+
+
+
+CREATE TABLE myairports (
+  id integer not null AUTO_INCREMENT,
+  ident varchar(10) NOT NULL,
+  username varchar(10) NOT NULL DEFAULT '',
+  stored TIMESTAMP NOT NULL,  
+  PRIMARY KEY (id),
+  FOREIGN KEY (ident) REFERENCES airports (ident)
+);
+CREATE UNIQUE INDEX myairports_username_ident ON myairports (username, ident);
+
+CREATE TABLE myairportslog (
+  id integer not null AUTO_INCREMENT,
+  ident varchar(10) NOT NULL,
+  flightDate date NOT NULL,
+  stored TIMESTAMP NOT NULL,
+  PRIMARY KEY (id),  
+  FOREIGN KEY (ident) REFERENCES airports (ident)
+);
+CREATE UNIQUE INDEX myairportslog_flightDate_ident ON myairportslog (flightDate, ident);
+
+CREATE TABLE airplanes (
+  id integer not null AUTO_INCREMENT,
+  icao24 varchar(30) NOT NULL,
+  firstSeen integer not null,
+  estDepartureAirport varchar (10) NOT NULL,
+  lastSeen integer not null,
+  estArrivalAirport varchar (10) NOT NULL,
+  callsign varchar (20),
+  estDepartureAirportHorizDistance integer not null,
+  estDepartureAirportVertDistance integer not null,
+  estArrivalAirportHorizDistance integer not null,
+  estArrivalAirportVertDistance integer not null,
+  departureAirportCandidatesCount integer not null,
+  arrivalAirportCandidatesCount integer not null,
+  stored TIMESTAMP NOT NULL, 
+  PRIMARY KEY (id),
+  FOREIGN KEY (estDepartureAirport) REFERENCES airports (ident)
+);
+CREATE INDEX airplanes_icao24_lastSeen ON airplanes(icao24, lastSeen);  
+CREATE INDEX airplanes_estArrivalAirport ON airplanes(estArrivalAirport); 
+
+CREATE TABLE meteo (
+  id int NOT NULL AUTO_INCREMENT,
+  ident varchar(10) NOT NULL,
+  latitude varchar(30) NOT NULL,
+  longitude varchar(30) NOT NULL,
+  weatherId int NOT NULL,
+  weatherMain varchar(30) NOT NULL,
+  weatherDescription varchar(50) NOT NULL,
+  weatherIcon varchar(30) DEFAULT NULL,
+  base varchar(30) NOT NULL,
+  mainTemp float NOT NULL,
+  mainFeelsLike float NOT NULL,
+  mainPressure float NOT NULL,
+  mainHumidity int NOT NULL,
+  mainTempMin float NOT NULL,
+  mainTempMax float NOT NULL,
+  mainSeaLevel float DEFAULT NULL,
+  mainGrndLevel float DEFAULT NULL,
+  visibility int NOT NULL,
+  windSpeed float NOT NULL,
+  windDeg int NOT NULL,
+  windGust float DEFAULT NULL,
+  cloudsAll int NOT NULL,
+  rain1h float DEFAULT NULL,
+  rain3h float DEFAULT NULL,
+  snow1h float DEFAULT NULL,
+  snow3h float DEFAULT NULL,
+  date bigint NOT NULL,
+  sysType int DEFAULT NULL,
+  sysId int DEFAULT NULL,
+  sysMessage float DEFAULT NULL,
+  sysCountry varchar(30) NOT NULL,
+  sysSunrise int NOT NULL,
+  sysSunset int NOT NULL,
+  timezone int NOT NULL,
+  cityId int NOT NULL,
+  cityName varchar(100) NOT NULL,
+  cod int NOT NULL,
+  PRIMARY KEY (id)
+);
+
+CREATE TABLE dnevnik(
+  id integer not null AUTO_INCREMENT,
+  korime varchar(10) NOT NULL,
+  vrijemePrimitka bigint NOT NULL,
+  komanda varchar(150) NOT NULL,
+  odgovor varchar(10) NOT NULL, 
+  PRIMARY KEY (id)
+);
+
+  
+
+
+

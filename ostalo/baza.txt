@@ -1,0 +1,5 @@
+CREATE DATABASE nwtis_lmrkonjic_bp_2 COLLATE 'utf8_croatian_ci';
+CREATE USER 'lmrkonjic' IDENTIFIED BY 'lmrkonjic'; 
+CREATE USER 'admin' IDENTIFIED BY 'admin'; 
+GRANT SELECT, INSERT, UPDATE, DELETE ON nwtis_lmrkonjic_bp_2.* TO 'lmrkonjic';
+GRANT ALL ON nwtis_lmrkonjic_bp_2.* TO 'admin';

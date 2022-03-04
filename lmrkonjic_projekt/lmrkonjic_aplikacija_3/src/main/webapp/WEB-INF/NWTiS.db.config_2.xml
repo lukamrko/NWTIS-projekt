@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<comment>NWTIS konfiguracija</comment>
+<entry key="app3.maxBrojCekaca">10</entry>
+<entry key="app3.adresa">localhost</entry>
+<entry key="app3.port">4444</entry>
+<entry key="LocationIQ.token">84cdddecd13e8ff31db695a92150c387</entry>
+<entry key="OpenWeatherMap.apikey">c4422aa099b5d1b37c99a59c6131f3ed</entry>
+<entry key="OpenSkyNetwork.korisnik">lukamrko</entry>
+<entry key="OpenSkyNetwork.lozinka">12345678</entry>
+<entry key="meteo.datum">14.06.2021</entry>
+<entry key="aerodrom.preuzimanje.status">false</entry>
+<entry key="aerodrom.preuzimanje.pocetak">01.01.2021</entry>
+<entry key="aerodrom.preuzimanje.kraj">30.04.2021</entry>
+<entry key="aerodrom.preuzimanje.ciklus">300</entry>
+<entry key="aerodrom.preuzimanje.pauza">1800</entry>
+<entry key="meteo.preuzimanje.status">false</entry>
+<entry key="meteo.preuzimanje.ciklus">1000</entry>
+<entry key="meteo.preuzimanje.pauza">1800</entry>
+</properties>

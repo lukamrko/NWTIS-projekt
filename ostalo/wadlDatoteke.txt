@@ -1,0 +1,5 @@
+cd C:\Users\Mrky\Desktop\Sve\Faks\8_semestar\NWTIS\Projekt\lmrkonjic_projekt\wadl
+curl -X OPTIONS http://localhost:8084/lmrkonjic_app_2/rest/korisnici/> korisnici.wadl
+curl -X OPTIONS http://localhost:8084/lmrkonjic_app_2/rest/aerodromi/> aerodromi.wadl
+curl -X OPTIONS http://localhost:8084/lmrkonjic_app_2/rest/mojiAerodromi/> mojiAerodromi.wadl
+curl -X OPTIONS http://localhost:8084/lmrkonjic_app_2/rest/dnevnik/> dnevnik.wadl

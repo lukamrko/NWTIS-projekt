@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<comment>NWTIS konfiguracija</comment>
+<entry key="app1.maxBrojDretvi">300</entry>
+<entry key="app1.maxBrojCekaca">10</entry>
+<entry key="app1.adresa">localhost</entry>
+<entry key="app1.port">4444</entry>
+<entry key="sjednica.trajanje">900</entry>
+<entry key="app1.maxZahtjeva">50</entry>
+<entry key="server.database">jdbc:derby://localhost:1527/</entry>
+<entry key="admin.username">admin</entry>
+<entry key="admin.password"></entry>
+<entry key="admin.database">nwtis_lmrkonjic_bp_1</entry>
+<entry key="user.username">lmrkonjic</entry>
+<entry key="user.password">lmrkonjic</entry>
+<entry key="user.database">nwtis_lmrkonjic_bp_1</entry>
+<entry key="jdbc.mysql">com.mysql.cj.jdbc.Driver</entry>
+<entry key="jdbc.derby">org.apache.derby.jdbc.ClientDriver</entry>
+<entry key="LocationIQ.token">84cdddecd13e8ff31db695a92150c387</entry>
+<entry key="OpenWeatherMap.apikey">c4422aa099b5d1b37c99a59c6131f3ed</entry>
+<entry key="OpenSkyNetwork.korisnik">lukamrko</entry>
+<entry key="OpenSkyNetwork.lozinka">12345678</entry>
+<entry key="preuzimanje.status">true</entry>
+<entry key="preuzimanje.pocetak">01.01.2021</entry>
+<entry key="preuzimanje.kraj">30.04.2021</entry>
+<entry key="preuzimanje.ciklus">300</entry>
+<entry key="preuzimanje.pauza">100</entry>
+</properties>

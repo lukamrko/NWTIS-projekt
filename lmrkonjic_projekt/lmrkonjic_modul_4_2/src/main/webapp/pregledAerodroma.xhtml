@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <h:head>
+        <title>Pregled aerodroma</title>
+
+    </h:head>
+    <h:body>
+        <div id="output"></div>
+        <h1>>Pregled aerodroma</h1>
+        <h:link value="Pregled aerodroma" outcome="faces/odabirAerodroma.xhtml" />
+        <h:form id="obrazac">
+            <h:outputLabel value="Broj aerodroma:" />
+            <h:outputText id="broj" value="#{pregledAerodroma.brojAerodroma}" />
+            <br/>
+            <h:selectOneListbox id="aerodromi" value="#{pregledAerodroma.odabraniAerodrom}" size="10">
+                <f:selectItems value="#{pregledAerodroma.evidentiraniAerodromi}" var="a" 
+                               itemLabel="#{a.icao} - #{a.naziv}" itemValue="#{a.icao}" />
+            </h:selectOneListbox>    
+            <br/>
+            <h:commandButton id="osvjezi" value="Osvježi" action="#{pregledAerodroma.osvjeziAerodrome}" >
+                <f:ajax render="broj aerodromi"/>
+            </h:commandButton>
+            <h:commandButton value="Daj Meteo" action="#{pregledAerodroma.dajMeteoPodatke}" >
+                <f:ajax execute="aerodromi broj" render="aerodromi temp vlaga tlak"/>
+            </h:commandButton>
+            <h:outputText value="#{pregledAerodroma.odabraniAerodrom}"></h:outputText>
+            <br></br>
+            <h:outputText id="temp" value="Temp: #{pregledAerodroma.temperatura}"></h:outputText>
+            <br></br>
+            <h:outputText id="vlaga" value="Vlaga: #{pregledAerodroma.vlaga}"></h:outputText>
+            <br></br>
+            <h:outputText id="tlak" value="Tlak: #{pregledAerodroma.tlak}"></h:outputText>
+            <br></br>
+        </h:form>
+            <h:outputScript library="jscript" name="websocket.js" target="head"/>
+    </h:body>
+</html>
+

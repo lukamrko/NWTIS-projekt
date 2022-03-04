@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<comment>NWTIS konfiguracija</comment>
+<entry key="app2.maxBrojCekaca">10</entry>
+<entry key="app2.adresa">localhost</entry>
+<entry key="app2.port">4444</entry>
+<entry key="server.database">jdbc:mysql://localhost:3306/</entry>
+<entry key="admin.username">admin</entry>
+<entry key="admin.password"></entry>
+<entry key="admin.database">nwtis_lmrkonjic_bp_2</entry>
+<entry key="user.username">lmrkonjic</entry>
+<entry key="user.password">lmrkonjic</entry>
+<entry key="user.database">nwtis_lmrkonjic_bp_2</entry>
+<entry key="jdbc.mysql">com.mysql.cj.jdbc.Driver</entry>
+<entry key="jdbc.derby">org.apache.derby.jdbc.ClientDriver</entry>
+<entry key="LocationIQ.token">84cdddecd13e8ff31db695a92150c387</entry>
+<entry key="OpenWeatherMap.apikey">c4422aa099b5d1b37c99a59c6131f3ed</entry>
+<entry key="OpenSkyNetwork.korisnik">lukamrko</entry>
+<entry key="OpenSkyNetwork.lozinka">12345678</entry>
+<entry key="aerodrom.preuzimanje.status">true</entry>
+<entry key="aerodrom.preuzimanje.pocetak">01.01.2021</entry>
+<entry key="aerodrom.preuzimanje.kraj">30.04.2021</entry>
+<entry key="aerodrom.preuzimanje.ciklus">200</entry>
+<entry key="aerodrom.preuzimanje.pauza">2</entry>
+<entry key="meteo.preuzimanje.status">true</entry>
+<entry key="meteo.preuzimanje.ciklus">600</entry>
+<entry key="meteo.preuzimanje.pauza">1</entry>
+</properties>

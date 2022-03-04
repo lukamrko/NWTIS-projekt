@@ -1,0 +1,73 @@
+CREATE TABLE korisnici (
+    korime varchar(50) NOT NULL,
+    lozinka varchar(255) NOT NULL,
+	prezime varchar(150) NOT NULL,
+    ime varchar(100) NOT NULL,
+    PRIMARY KEY (korime)
+)
+INSERT INTO KORISNICI VALUES ('pero', '123456', 'peric', 'pero')
+INSERT INTO KORISNICI VALUES 
+('pero', '123456', 'peric', 'pero'),
+('ante', '123456', 'antic', 'ante'),
+('branko', '123456', 'brankic', 'branko'),
+('cvit', '123456', 'cvitic', 'cvitko'),
+('dark', '123456', 'darkic', 'darko'),
+('ego', '654321', 'egic', 'eugen'),
+('fran', '123456', 'franic', 'franjo'),
+('hrca', '654321', 'hrvic', 'hvroje'),
+('iva', '123456', 'ivic', 'iva'),
+('jozo', '654321', 'jozic', 'jozo'),
+('mato', '123456', 'Matić', 'Matej'),
+('ivo', '123456', 'Ivkosic', 'Ivan')
+
+
+CREATE TABLE ovlasti (
+    id INTEGER NOT NULL GENERATED ALWAYS AS IDENTITY,
+    korime varchar(50) NOT NULL,
+    podrucje varchar(255),
+    status BOOLEAN,
+    PRIMARY KEY (id),
+    FOREIGN KEY (korime) REFERENCES korisnici(korime)
+)
+
+ALTER TABLE ovlasti ADD CONSTRAINT jedinstveniKorimePodrucje 
+UNIQUE (korime, podrucje)
+
+
+// trigger ne radi
+CREATE TRIGGER jedinstvenaKombinacijaKorimePodrucjeIns
+BEFORE INSERT ovlasti
+IF NOT EXISTS
+(
+    SELECT * FROM new AS n
+    INNER JOIN ovlasti AS o
+    ON n.korime=o.KORIME
+    AND n.podrucje=o.PODRUCJE
+)
+BEGIN
+    INSERT INTO ovlasti VALUES (new.korime, new.podrucje, new.status)
+END ;    
+
+//Moguća područja : administracija, administracijaAerodroma, pregledKorisnik, pregledJMS, pregledDnevnik, pregledAktivnihKorisnika, pregledAerodroma, 
+INSERT INTO ovlasti (korime, podrucje, status) VALUES 
+('pero', 'administracija', TRUE),
+('pero', 'administracijaAerodroma', TRUE),
+('pero', 'pregledKorisnik', TRUE),
+('pero', 'pregledJMS', TRUE),
+('pero', 'pregledDnevnik', TRUE),
+('pero', 'pregledAktivnihKorisnika', TRUE),
+('pero', 'pregledAerodroma', TRUE),
+('ante', 'administracija', TRUE),
+('ante', 'pregledKorisnik', TRUE),
+('branko', 'administracija', TRUE),
+('branko', 'pregledKorisnik', TRUE),
+('cvit', 'pregledJMS', TRUE),
+('cvit', 'pregledDnevnik', TRUE),
+('dark', 'pregledAktivnihKorisnika', TRUE),
+('dark', 'pregledAerodroma', TRUE),
+('ego', 'pregledAktivnihKorisnika', TRUE),
+('ego', 'pregledAerodroma', TRUE),
+('fran', 'pregledAktivnihKorisnika', TRUE),
+('fran', 'pregledAerodroma', TRUE),
+('hrca', 'pregledAktivnihKorisnika', TRUE),
+('hrca', 'pregledAerodroma', TRUE)
